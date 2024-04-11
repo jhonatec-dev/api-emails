@@ -1,10 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import cors from 'cors'
 import dayjs from 'dayjs'
 import { configDotenv } from 'dotenv'
 import express, { type Application } from 'express'
 import 'module-alias/register'
 import mongoose from 'mongoose'
+import swaggerUi from 'swagger-ui-express'
 import sendRoutes from './routes/send.routes'
+import swaggerDocs from './swagger.json'
 
 configDotenv()
 
@@ -29,10 +32,7 @@ async function startServer (): Promise<void> {
     app.use(express.json())
     app.use(cors())
     app.use(sendRoutes)
-
-    app.get('/', (_req, res) => {
-      res.send(`${today} --> Hello World!`)
-    })
+    app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
     app.listen(port, () => {
       console.log(`Servidor rodando na porta ${port}`)

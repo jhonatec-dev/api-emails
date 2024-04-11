@@ -1,5 +1,5 @@
 interface ServiceError {
-  status: 'INVALID' | 'NOT_FOUND' | 'ERROR'
+  status: 'INVALID' | 'NOT_FOUND' | 'ERROR' | 'UNAUTHORIZED' | 'FORBIDDEN'
   data: { message: string }
 }
 

@@ -23,7 +23,7 @@ class MailerService {
 
   async sendMail (fields: Email): Promise<ServiceResult<unknown>> {
     try {
-      const destine = [fields.to]
+      const destine = [...fields.to]
       if (fields.copy === true) {
         destine.push(fields.from)
       }

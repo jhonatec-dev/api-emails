@@ -1,0 +1,109 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "API de disparo de Emails",
+    "description": "API para disparo de emails para uso das minhas aplicações e amigos cadastrados em minha base de dados",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Jhonatec",
+      "email": "contato@jhonatec.com"
+    }
+  },
+  "paths": {
+    "/send": {
+      "post": {
+        "summary": "Envia um email",
+        "description": "Envia um email para um ou mais destinatários",
+        "tags": ["Email"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Email"
+              },
+              "examples": {
+                "Simple": {
+                  "summary": "Exemplo simples, somente para um destinatário",
+                  "value": {
+                    "from": "email-valido@mail.com",
+                    "to": ["destino-1@mail.com"],
+                    "subject": "Assunto do email",
+                    "body": "<h1>Olá, mundo!</h1>"
+                  }
+                },
+                "Simple with copy": {
+                  "summary": "Exemplo simples, somente para um destinatário, com cópia para o remetente",
+                  "value": {
+                    "from": "email-valido@mail.com",
+                    "to": ["destino-1@mail.com"],
+                    "subject": "Assunto do email",
+                    "body": "<h1>Olá, mundo!</h1>",
+                    "copy": true
+                  }
+                },
+                "MultipleDestinataries": {
+                  "summary": "Exemplo com múltiplos destinatários e cópia para o remetente",
+                  "value": {
+                    "from": "email-valido@mail.com",
+                    "to": ["destino-1@mail.com", "destino-2@mail.com"],
+                    "subject": "Assunto do email",
+                    "body": "<h1>Olá, mundo!</h1>",
+                    "copy": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Quando o email foi enviado com sucesso",
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Email"
+              }
+            }
+          },
+          "400": {
+            "description": "Se algum campo não foi preenchido corretamente"
+          },
+          "401": {
+            "description": "Quando seu email não está cadastrado em minha base de dados"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Email": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "description": "Email do remetente (seu email)"
+          },
+          "to": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Emails dos destinatários (pode ser um ou mais emails dentro de um array)"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "body": {
+            "type": "string",
+            "description": "Corpo do email em HTML (pode esbanjar nas imagens, links e tabelas)"
+          },
+          "copy": {
+            "type": "boolean",
+            "description": "Copia o email para o remetente? (true ou false)",
+            "default": false
+          }
+        }
+      }
+    }
+  }
+}

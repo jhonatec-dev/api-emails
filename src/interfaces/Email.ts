@@ -1,10 +1,7 @@
 import * as z from 'zod'
 
 const EmailSchema = z.object({
-  to: z
-    .string()
-    .email({ message: 'Invalid email' })
-    .min(1, { message: 'To is required' }),
+  to: z.array(z.string().email({ message: 'Invalid email' })),
   from: z
     .string()
     .email({ message: 'Invalid email' })
