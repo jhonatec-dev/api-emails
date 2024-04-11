@@ -7,7 +7,6 @@ class SendService {
   private async isUserValid (email: string): Promise<boolean> {
     try {
       const response = await userModel.model.findOne({ email })
-      console.log('response', response)
       if (response === null) {
         return false
       }

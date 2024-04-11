@@ -23,11 +23,13 @@ class MailerService {
 
   async sendMail (fields: Email): Promise<ServiceResult<unknown>> {
     try {
-      console.log('USER, PASS \n\n', user, pass, '\n\n\n')
-
+      const destine = [fields.to]
+      if (fields.copy === true) {
+        destine.push(fields.from)
+      }
       await this.transporter.sendMail({
         from: user,
-        to: fields.to,
+        to: destine,
         subject: fields.subject,
         html: fields.body
       })
@@ -40,7 +42,6 @@ class MailerService {
       }
     } catch (error) {
       console.error('error no SENDMAIL', error)
-      console.log('error no SENDMAIL', error)
       return {
         status: 'INVALID',
         data: { message: (error as Error).message }

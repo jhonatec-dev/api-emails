@@ -35,7 +35,7 @@ async function startServer (): Promise<void> {
     })
 
     app.listen(port, () => {
-      console.log(`${today} - Servidor rodando na porta ${port}`)
+      console.log(`Servidor rodando na porta ${port}`)
     })
   } catch (error) {
     console.log(today, 'Erro no servidor MONGO:', error)
