@@ -3,8 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/server.ts",
+  "_moduleAliases": {
+    "@config": "src/config",
+    "@controllers": "src/controllers",
+    "@database": "src/database",
+    "@middlewares": "src/middlewares",
+    "@models": "src/models",
+    "@routes": "src/routes",
+    "@services": "src/services",
+    "@utils": "src/utils"
+  },
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules src/server.ts",
+    "dev": "ts-node src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js"
   },
@@ -27,6 +37,7 @@
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.4.5"
   },
   "files": [
@@ -43,6 +54,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
+    "module-alias": "^2.2.3",
     "mongodb": "^6.5.0",
     "mongoose": "^8.3.1",
     "nodemailer": "^6.9.13",

@@ -1,9 +1,9 @@
+import sendRoutes from '@routes/send.routes'
 import cors from 'cors'
 import dayjs from 'dayjs'
 import { configDotenv } from 'dotenv'
 import express, { type Application } from 'express'
 import mongoose from 'mongoose'
-import sendRoutes from './routes/send.routes'
 
 configDotenv()
 
