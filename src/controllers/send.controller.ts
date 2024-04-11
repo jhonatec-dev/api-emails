@@ -1,7 +1,7 @@
-import { type Email } from '@interfaces/Email'
-import sendService from '@services/send.service'
-import { mapStatusHTTP } from '@utils/mapStatusHTTP'
 import { type Request, type Response } from 'express'
+import { type Email } from '../interfaces/Email'
+import sendService from '../services/send.service'
+import { mapStatusHTTP } from '../utils/mapStatusHTTP'
 // import { mapStatusHTTP } from '@utils/mapStatusHTTP'
 
 class SendController {

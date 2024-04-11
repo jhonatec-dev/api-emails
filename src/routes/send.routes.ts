@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import sendController from '@controllers/send.controller'
-import sendValitation from '@validations/send.valitation'
 import { Router, type Request, type Response } from 'express'
+import sendController from '../controllers/send.controller'
+import sendValitation from '../validations/send.valitation'
 
 class SendRoutes {
   private readonly router = Router()

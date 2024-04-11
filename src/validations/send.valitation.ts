@@ -1,6 +1,6 @@
-import { EmailSchema } from '@interfaces/Email'
 import { type NextFunction, type Request, type Response } from 'express'
 import { ZodError } from 'zod'
+import { EmailSchema } from '../interfaces/Email'
 
 class SendValidator {
   async validateSend (

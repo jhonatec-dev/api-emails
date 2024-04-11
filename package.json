@@ -3,18 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/server.ts",
-  "_moduleAliases": {
-    "@config": "src/config",
-    "@controllers": "src/controllers",
-    "@database": "src/database",
-    "@middlewares": "src/middlewares",
-    "@models": "src/models",
-    "@routes": "src/routes",
-    "@services": "src/services",
-    "@utils": "src/utils"
-  },
   "scripts": {
-    "dev": "ts-node src/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js"
   },

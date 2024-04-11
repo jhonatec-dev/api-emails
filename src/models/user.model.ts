@@ -1,5 +1,5 @@
-import type { User } from '@interfaces/Users'
 import { Schema, model, type Model } from 'mongoose'
+import type { User } from '../interfaces/Users'
 
 class UserModel {
   public readonly model: Model<User>

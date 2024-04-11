@@ -1,6 +1,6 @@
-import { type Email } from '@interfaces/Email'
-import type ServiceResult from '@interfaces/ServiceResult'
-import userModel from '@models/user.model'
+import { type Email } from '../interfaces/Email'
+import type ServiceResult from '../interfaces/ServiceResult'
+import userModel from '../models/user.model'
 import mailerService from './mailer.service'
 
 class SendService {
