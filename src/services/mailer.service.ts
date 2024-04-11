@@ -1,4 +1,3 @@
-import dayjs from 'dayjs'
 import { configDotenv } from 'dotenv'
 import nodemailer from 'nodemailer'
 import { type Email } from '../interfaces/Email'
@@ -10,7 +9,7 @@ const user = process.env.EMAIL_USER ?? 'USER'
 const pass = process.env.EMAIL_PASS ?? 'PASSWORD'
 
 class MailerService {
-  private readonly transporter = nodemailer.createTransport({
+  public readonly transporter = nodemailer.createTransport({
     host: 'smtp.hostinger.com',
     service: 'smtp.hostinger.com',
     port: 465,
@@ -36,12 +35,10 @@ class MailerService {
       return {
         status: 'SUCCESS',
         data: {
-          message: 'Email sent successfully',
-          date: dayjs().format('YYYY-MM-DD HH:mm:ss')
+          message: 'Email sent successfully'
         }
       }
     } catch (error) {
-      console.error('error no SENDMAIL', error)
       return {
         status: 'INVALID',
         data: { message: (error as Error).message }
