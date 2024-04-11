@@ -1,13 +1,14 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable @typescript-eslint/unbound-method */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-misused-promises */
+import sendController from '@controllers/send.controller'
 import sendValitation from '@validations/send.valitation'
 import { Router, type Request, type Response } from 'express'
 
 class SendRoutes {
-  router: Router
+  private readonly router = Router()
 
   constructor () {
-    this.router = Router()
     this.routes()
   }
 
@@ -20,9 +21,7 @@ class SendRoutes {
       '/send',
       sendValitation.validateSend,
       async (req: Request, res: Response) => {
-        const { body } = req
-        console.log(body)
-        res.send('Working!')
+        await sendController.send(req, res)
       }
     )
   }

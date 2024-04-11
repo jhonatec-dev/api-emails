@@ -11,7 +11,8 @@ class UserModel {
       },
       active: {
         type: Boolean,
-        required: true
+        required: true,
+        default: true
       }
     })
     this.model = model<User>('User', UserSchema)
