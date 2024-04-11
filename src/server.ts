@@ -3,6 +3,7 @@ import dayjs from 'dayjs'
 import { configDotenv } from 'dotenv'
 import express, { type Application } from 'express'
 import mongoose from 'mongoose'
+import sendRoutes from './routes/send.routes'
 
 configDotenv()
 
@@ -26,10 +27,10 @@ async function startServer (): Promise<void> {
 
     app.use(express.json())
     app.use(cors())
-    // app.use(router)
+    app.use(sendRoutes)
 
     app.get('/', (_req, res) => {
-      res.send('Hello World!')
+      res.send(`${today} --> Hello World!`)
     })
 
     app.listen(port, () => {
