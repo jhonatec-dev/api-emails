@@ -27,7 +27,7 @@ class SendService {
       return response
     } catch (error) {
       return {
-        status: 'INVALID',
+        status: 'UNAUTHORIZED',
         data: { message: (error as Error).message }
       }
     }
