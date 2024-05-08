@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { mapStatusHTTP } from '../../../src/utils/mapStatusHTTP'
+import { mapStatusHTTP } from '../../../utils/mapStatusHTTP'
 
 describe('mapStatusHTTP', () => {
   it('should return 200 when status is 200', () => {

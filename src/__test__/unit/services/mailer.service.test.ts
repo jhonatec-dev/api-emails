@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 import { configDotenv } from 'dotenv'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import mailerService from '../../../src/services/mailer.service'
+import mailerService from '../../../services/mailer.service'
 
 configDotenv()
 const userENV = process.env.EMAIL_USER ?? 'USER'
